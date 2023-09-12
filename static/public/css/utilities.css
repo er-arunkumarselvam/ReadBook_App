@@ -1,0 +1,93 @@
+/**
+ *
+ * ReadBook App
+ *
+ * @{@code utilities.css} has been created to handle 
+ *           all the utilities.
+ *
+ * @author Arunkumar
+ *
+ */
+/* Custom Font */
+/* Nunito Sans */
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: extralight;
+  font-weight: 200;
+  src: url("./fonts/NunitoSans_ExtraLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: light;
+  font-weight: 300;
+  src: url("./fonts/NunitoSans_Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: regular;
+  font-weight: 400;
+  src: url("./fonts/NunitoSans_Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: medium;
+  font-weight: 500;
+  src: url("./fonts/NunitoSans_Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: semibold;
+  font-weight: 600;
+  src: url("./fonts/NunitoSans_SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: bold;
+  font-weight: 700;
+  src: url("./fonts/NunitoSans_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: extrabold;
+  font-weight: 800;
+  src: url("./fonts/NunitoSans_ExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: black;
+  font-weight: 900;
+  src: url("./fonts/NunitoSans_Black.woff2") format("woff2");
+}
+
+.fw-black {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 900;
+}
+.fw-extrabold {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
+}
+.fw-bold {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+}
+.fw-semibold {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+.fw-medium {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 500;
+}
+.fw-normal {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+}
+.fw-light {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+}
+.fw-extralight {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 200;
+}

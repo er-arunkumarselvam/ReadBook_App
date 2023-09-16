@@ -13,7 +13,7 @@ def getFileName(request, filename):
 class Genre(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     image = models.ImageField(upload_to = getFileName, null=True, blank=True)
-    decription = models.TextField(max_length=500,  null=False, blank=False)
+    description = models.TextField(max_length=500,  null=False, blank=False)
     status = models.BooleanField(default=False, help_text="0-show,1-Hidden")
     createdAt = models.DateTimeField(auto_now_add=True)
     
@@ -21,6 +21,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+def getFileName(request, filename):
+    now_time = datetime.datetime.now().strftime("%Y-%m-%d%H:%M:%S")
+    new_filename = "%s%s" % (now_time, filename)
+    return os.path.join('uploads/books', new_filename) 
 # create a books or products class
 class BookProduct(models.Model):
     # Create a foreign key in Genre
@@ -29,16 +33,23 @@ class BookProduct(models.Model):
     bookName = models.CharField(max_length=255, null=False, blank=False)
     authorName = models.CharField(max_length=255, null=False, blank=False)
     publicationName = models.CharField(max_length=255, null=False, blank=False)
+    LANGUAGE_CHOICE=[
+        ('ta','TAMIL'),
+        ('en','ENGLISH'),
+        ('fr','FRENCH'),
+        ('no','NONE'),  
+    ]
+    bookLanguage = models.CharField(max_length=2, choices=LANGUAGE_CHOICE, default='en')
     quantity = models.IntegerField(null=False, blank=False)
     buyingPrice = models.FloatField(null=False, blank=False)
     sellingPrice = models.FloatField(null=False, blank=False)
     discountPrice = models.FloatField(null=False, blank=False)
     bookImage = models.ImageField(upload_to = getFileName, null=True, blank=True)
-    bookDecription = models.TextField(max_length=500,  null=False, blank=False)
+    bookDecription = models.TextField(max_length=1000,  null=False, blank=False)
     bookStatus = models.BooleanField(default=False, help_text="0-show,1-Hidden")
     bestSeller = models.BooleanField(default=False, help_text="0-normal,1-bestseller")
     createAt = models.DateTimeField(auto_now_add=True)
     
     # Overloading __str__ 
     def __str__(self): 
-        return self.name
+        return self.bookName

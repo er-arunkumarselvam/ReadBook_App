@@ -9,4 +9,6 @@ from . import views
 
 urlpatterns=[
    path("",views.homeView,name="home"),
+   path("genre",views.genreView,name="genre"),
+   path("genre/<str:name>",views.genreList,name="genre"),
 ] 

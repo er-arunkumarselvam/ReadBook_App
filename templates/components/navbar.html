@@ -1,9 +1,13 @@
+{% load static %}
 <div class="header">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-light m-0 p-0">
+  <nav class="navbar navbar-expand-lg bg-light m-0 p-0 shadow-sm fixed-top">
     <div class="container-fluid col-12 col-sm-11 mx-auto">
-      <a class="navbar-brand" href="#">
-        <img src="static/public/images/readbooklogo.svg" alt="Read Book Logo" />
+      <a class="navbar-brand" href="{% url 'home'%}">
+        <img
+          src="{% static 'public/images/readbooklogo.svg' %}"
+          alt="Read Book Logo"
+        />
       </a>
       <button
         class="navbar-toggler shadow-none"
@@ -22,36 +26,36 @@
             <a
               class="nav-link active text-uppercase"
               aria-current="page"
-              href="#"
+              href="{% url 'home'%}"
               >Home</a
             >
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
             <a
-              class="nav-link text-uppercase dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              class="nav-link  text-uppercase"
+              aria-current="page"
+              href="{% url 'genre'%}"
+              >Genre</a
             >
-              Genre
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Articles</a>
+            <a class="nav-link text-uppercase" href="{% url 'home'%}"
+              >Articles</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Cart</a>
+            <a class="nav-link text-uppercase" href="{% url 'home'%}">Cart</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <button class="btn btn-signin me-2" type="submit">SIGN IN</button>
-          <button class="btn btn-signup" type="submit">SIGN UP</button>
+          <a href="{% url 'home'%}"
+            ><button class="btn btn-signin me-2" type="submit">
+              SIGN IN
+            </button></a
+          >
+          <a href="{% url 'home'%}"
+            ><button class="btn btn-signup" type="submit">SIGN UP</button></a
+          >
         </ul>
       </div>
     </div>

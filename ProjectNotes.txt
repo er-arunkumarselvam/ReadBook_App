@@ -117,6 +117,33 @@ ReadBook Web Application
         - Run your project goto 127.0.0.1:8000/admin
         - login to the superuser
 
+    Upload Product Data for database using admin panel
+
+    Incase, Change the admin panel layout and design to install this package.
+
+        pip install django-jazzmin
+
+    After installing "django-jazzmin" register to "settings.py" file in "INSTALLED APP" Section and runserver. Change the dashboard theme
+
+    Add links:
+
+        - create route in genre in function in "views.py" and update the "urls.py"
+
+    Fetch Data from PostgreSQL database with Genre Model:
+
+        - Goto "urls.py" file in your project foloder and registered to access "STATICFILES"
+        - import from settings and static folder
+        - Access the urlpattern in the static folder
+        - goto "genre.html" update the field
+
+    Book Product Genre Show:
+
+        - Goto "urls.py" in your application folder and add the genre url and pass the parameter "genre name"
+
+                genre/<str:name> passing the string parameter "genre name"
+
+        - update the "views.py" in new function like genreList, check the condition and filter out the genre name and list products in particular genre
+
 
 
 

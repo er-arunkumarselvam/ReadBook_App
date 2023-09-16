@@ -2,6 +2,11 @@
 <!-- Title Content -->
 {% block title %} ReadBook App {% endblock %}
 <!-- Block Content -->
-{%block content %}
-<h1>Welcome to ReadBook App</h1>
+{%block content %} {% include "components/carousel.html" %}
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12"><h1>Welcome to ReadBook App</h1></div>
+  </div>
+</div>
+
 {% endblock %}

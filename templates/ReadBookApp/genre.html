@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %}
+<!-- Title Content -->
+{% block title %} ReadBook App {% endblock %}
+<!-- Block Content -->
+{%block content %}
+<!-- Genre Category -->
+<section class="py-4 my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 genre-content">
+        <h4 class="my-3 fs-4 genre-content__heading">Genre</h4>
+        <hr />
+      </div>
+      <!-- Genre Card -->
+      {% for bookItem in genre %}
+      <div class="col-lg-3 col-md-4 justify-content-center">
+        <div class="card my-3 shadow genre-card">
+          <img
+            src="{{bookItem.image.url}}"
+            class="card-image-top genre-card__img"
+            alt="Genre"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{bookItem.name}}</h5>
+            <p class="card-text text-secondary">{{bookItem.description}}</p>
+            <a
+              href="{% url 'genre' bookItem.name %}"
+              class="btn btn-sm genre-card__btn--primary text-white"
+              >View Genre</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

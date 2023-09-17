@@ -143,6 +143,27 @@ ReadBook Web Application
                 genre/<str:name> passing the string parameter "genre name"
 
         - update the "views.py" in new function like genreList, check the condition and filter out the genre name and list products in particular genre
+        - update the "genre.html" file using python template tags
+
+    Design "footer.html" File and add in base.html
+
+    Specific Product Show:
+
+        -  Goto "urls.py" in your application folder and add the genre url and pass the parameter "genre name" and "book name" to the
+
+                genre/<str:name>/<str:name> passing the string parameter "genre name" and book name
+
+        -  update the "views.py" in new function like bookDetailsView, check the condition and filter out the genre name and book name in particular book
+        -  update the "books.html" file using python template tags
+
+            <a href="{% url 'book-details' bookProduct.genre bookProduct.bookName %}">...</a>
+
+        -  above anchor tag using genre and bookName are database names.
+        -  genre filter in bookDetailsView in "views.py"
+
+
+
+
 
 
 

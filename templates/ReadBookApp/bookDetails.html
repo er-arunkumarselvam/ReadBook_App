@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% load static %}
+<!-- Title Content -->
+{% block title %} ReadBook App | {{books}}{% endblock %}
+<!-- Block Content -->
+{%block content %}
+<!-- Book Genre-->
+<section class="py-4 my-5 book-detail">
+  <div class="container">
+    <div
+      class="col-12 mx-auto mb-5 py-2 bg-light shadow-sm book-details__breadcrumb"
+    >
+      <nav class="mx-3" aria-label="breadcrumb">
+        <ol class="breadcrumb mx-3 my-3">
+          <li class="breadcrumb-item">
+            <a href="{% url 'genre' %}">Genre</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'genre' books.genre %}">{{books.genre}}</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{books}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-4 my-3">
+        <div class="mx-auto book-details-img">
+          <img
+            src="{{books.bookImage.url}}"
+            class="card-image-top text-center mx-auto book-card__img"
+            alt="{{books}} image"
+          />
+        </div>
+      </div>
+      <!-- Book Details -->
+      <div class="col-8">
+        <div class="col-12">
+          {% if books.bestSeller %}<span class="badge bg-warning text-dark p-2"
+            >Best Seller</span
+          >{% endif %}
+
+          <h4 class="mt-2 mb-0 fs-3 fw-bold book-details-data__heading">
+            {{books}}
+          </h4>
+          <div class="d-flex my-2 book-details-data">
+            <p class="me-3">
+              by &nbsp;<span class="book-details-data__authorname"
+                >{{books.authorName}}</span
+              >&nbsp;(Author)
+            </p>
+            <p>
+              <i class="fas fa-newspaper fa-fw me-1"></i
+              ><span>{{books.publicationName}}</span>
+            </p>
+          </div>
+          <hr class="mt-1" />
+        </div>
+        <p>{{books.bookDecription}}</p>
+        <div class="d-flex align-items-baseline">
+          <h5 class="fs-2 me-2 book-data__pricing--discount">
+            &#8377; {{books.discountPrice | stringformat:'d'}}
+          </h5>
+          <h6 class="fs-4 book-data__pricing--original">
+            &#8377; {{books.sellingPrice | stringformat:'d'}}
+          </h6>
+        </div>
+
+        <div class="my-3">
+          {% if books.quantity %}
+          <button type="button" class="btn btn-primary">Add Cart</button>
+          {% else %}
+          <button type="button" class="btn btn-secondary disbled">
+            Out of Stock
+          </button>
+          {% endif %} {% if books.quantity %}<button
+            type="button"
+            class="btn btn-success text-white"
+          >
+            Buy Now
+          </button>
+          {% else %}
+          <button type="button" class="btn btn-success text-white" disabled>
+            Buy Now
+          </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

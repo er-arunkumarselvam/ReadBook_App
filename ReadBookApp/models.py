@@ -39,7 +39,7 @@ class BookProduct(models.Model):
         ('fr','FRENCH'),
         ('no','NONE'),  
     ]
-    bookLanguage = models.CharField(max_length=2, choices=LANGUAGE_CHOICE, default='en')
+    bookLanguage = models.CharField(max_length=2,choices=LANGUAGE_CHOICE, default='en')
     quantity = models.IntegerField(null=False, blank=False)
     buyingPrice = models.FloatField(null=False, blank=False)
     sellingPrice = models.FloatField(null=False, blank=False)

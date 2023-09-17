@@ -25,6 +25,7 @@
   --light-orange: #ff8c42;
   --indigo: #6610f2;
   --info: #04c7e0;
+  --sky: #f0f9ff;
   --purple: #6f42c1;
   --violet: #542344;
   --red: #dc2626;
@@ -142,7 +143,9 @@ body {
   margin-top: 70px;
 }
 .genre-content__heading {
-  color: var(--dark-red);
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 2px;
   font-weight: 700;
 }
 .genre-card {
@@ -165,6 +168,9 @@ body {
 }
 /* End Genre */
 /* Book List */
+.card-section__link {
+  text-decoration: none;
+}
 .book-card {
   width: 18rem;
   min-height: 28rem;
@@ -174,5 +180,56 @@ body {
   height: 300px;
   object-fit: fill;
 }
-
+.book-card__title {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--slate);
+}
+.book-card__text {
+  display: block;
+}
+.card-text__discount {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--slate);
+}
+.card-text__selling {
+  text-decoration: line-through;
+  color: var(--dark-red);
+}
 /* End Book List  */
+/* Book Details */
+.book-detail {
+  min-height: 45rem;
+}
+.book-detail .container {
+  margin: 80px auto;
+}
+.book-details__breadcrumb {
+  border-radius: 6px;
+}
+
+.book-details-img {
+  width: 50%;
+  height: 300px;
+}
+.book-details-img img {
+  object-fit: fill;
+}
+.book-details-data__heading {
+  color: var(--slate);
+}
+.book-details-data__authorname {
+  color: var(--dark-red);
+}
+.book-data__pricing--discount {
+  font-weight: 700;
+  color: var(--slate);
+}
+.book-data__pricing--original {
+  font-weight: 400;
+  color: var(--dark-red);
+  text-decoration: line-through;
+}
+/* End Book Details */

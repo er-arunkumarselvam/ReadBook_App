@@ -10,5 +10,6 @@ from . import views
 urlpatterns=[
    path("",views.homeView,name="home"),
    path("genre",views.genreView,name="genre"),
-   path("genre/<str:name>",views.genreList,name="genre"),
+   path("genre/<str:name>",views.genreListView,name="genre"),
+   path("book-details/<str:genrename>/<str:bookname>",views.bookDetailsView,name="book-details"),
 ] 

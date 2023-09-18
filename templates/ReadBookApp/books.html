@@ -32,26 +32,36 @@
           href="{% url 'book-details' bookProduct.genre bookProduct.bookName %}"
           class="card-section__link"
         >
-          <div class="card my-3 shadow book-card">
-            <img
-              src="{{bookProduct.bookImage.url}}"
-              class="card-image-top text-center mx-auto book-card__img"
-              alt="Book Image"
-            />
-            <div class="card-body book-card__body">
-              <h5 class="card-title book-card__title">
-                {{bookProduct.bookName}}
-              </h5>
-              <p class="card-text book-card__text">
-                <span class="card-text__discount"
-                  >&#8377; {{bookProduct.discountPrice |stringformat:'d'}}</span
-                >
-                <span class="card-text__selling"
-                  >&#8377; {{bookProduct.sellingPrice | stringformat:'d'}}</span
-                >
-              </p>
+          <div class="col">
+            <div class="card my-3 shadow book-card">
+              <img
+                src="{{bookProduct.bookImage.url}}"
+                class="card-img-top mx-auto my-4 book-card__img"
+                alt="{{bookProduct.bookName}} Image"
+              />
+              <div class="card-body border border-top book-card__body">
+                {% if bookProduct.bestSeller %}<span
+                  class="badge bg-warning text-dark p-2"
+                  >Best Seller</span
+                >{% endif %}
+                <h5 class="card-title mt-2 book-card__title">
+                  {{bookProduct.bookName}}
+                </h5>
+                <p class="card-text book-card__description">
+                  {{bookProduct.bookDecription}}
+                </p>
+                <div class="d-flex align-items-baseline book-card__text">
+                  <h5 class="fs-2 me-2 book-data__pricing--discount">
+                    &#8377; {{bookProduct.discountPrice | stringformat:'d'}}
+                  </h5>
+                  <h6 class="fs-5 book-data__pricing--original">
+                    &#8377; {{bookProduct.sellingPrice | stringformat:'d'}}
+                  </h6>
+                </div>
+              </div>
             </div>
           </div>
+          
         </a>
       </div>
       {% endfor %}

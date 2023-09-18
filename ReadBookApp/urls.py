@@ -12,4 +12,6 @@ urlpatterns=[
    path("genre",views.genreView,name="genre"),
    path("genre/<str:name>",views.genreListView,name="genre"),
    path("book-details/<str:genrename>/<str:bookname>",views.bookDetailsView,name="book-details"),
+   path("signup",views.signupView,name="signup"),
+   path("signin",views.signinView,name="signin"),
 ] 

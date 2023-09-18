@@ -160,6 +160,23 @@ ReadBook Web Application
 
         -  above anchor tag using genre and bookName are database names.
         -  genre filter in bookDetailsView in "views.py"
+        -  get the product details and show the "bookDetail.html"
+        
+    Show Products in "index.html"
+
+        - update the "views.py" in already exist function add condition below the function
+        - update the "index.html" and style the product card
+
+    Register and Login using auth module
+
+        - Goto "models.py" and import auth module and class
+        - update the views.py in signupView and add url in "urls.py" file
+        - create signup.html file and style the signup form
+        - import forms and add attribute in "models.py" file and bootstrap class handled
+        - message passes to "message.html" 
+        - create signin.html file and style the signin form
+    
+
 
 
 

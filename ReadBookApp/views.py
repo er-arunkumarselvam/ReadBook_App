@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
+from ReadBookApp.forms import SignUpForm
 from . models import *
 from django.contrib import messages
 
 # Create your views here.
 def homeView(request):
-    return render(request, 'index.html')
+    booksProduct=BookProduct.objects.filter(bestSeller=1)
+    return render(request, 'index.html', {'booksProduct': booksProduct})
 
 # Genre Option
 def genreView(request):
@@ -33,3 +35,20 @@ def bookDetailsView(request,genrename,bookname):
     else:
         messages.warning(request,"No genre of that kind exists.")
         return redirect('genre')
+    
+# Register or Sign Up
+def signupView(request):
+    forms=SignUpForm()
+    # Action get into method
+    if request.method =='POST':
+        forms= SignUpForm(request.POST)
+        if forms.is_valid():
+            forms.save()
+            messages.success(request,"Successfully Your Account is created.")
+            return redirect('/signin')
+    return render(request, 'ReadBookApp/signup.html',{"forms":forms})
+
+# Login or Sign In 
+def signinView(request):
+    
+    return render(request,"ReadBookApp/signin.html")

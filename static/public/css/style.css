@@ -16,6 +16,7 @@
   --white: #ffffff;
   --gray-tone: #f0f1f5;
   --white-tint: #efeee9;
+  --neutral: #fafafa;
   --yellow: #ffc107;
   --alice-blue: #ebf3ff;
   --blue: #086bd9;
@@ -134,7 +135,7 @@ body {
 .carousel-item img {
   object-fit: fill;
   object-position: top;
-  height: 50vh;
+  height: 29vh;
   overflow: hidden;
 }
 /* End Carousel */
@@ -173,20 +174,35 @@ body {
 }
 .book-card {
   width: 18rem;
-  min-height: 28rem;
+  min-height: 32rem;
+  background: var(--neutral);
 }
 .book-card__img {
-  width: 100%;
-  height: 300px;
+  width: 150px;
+  height: 230px;
   object-fit: fill;
 }
 .book-card__title {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 700;
   color: var(--slate);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .book-card__text {
   display: block;
+}
+.book-card__description {
+  text-decoration: none;
+  color: var(--slate);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-text__discount {
   font-size: 20px;
@@ -232,4 +248,25 @@ body {
   color: var(--dark-red);
   text-decoration: line-through;
 }
+
 /* End Book Details */
+/* Index Page */
+.book-card__badge {
+  background-color: var(--dark-red);
+}
+/* End Index Page */
+/* Sign Up Page */
+.signup-card {
+  background: var(--neutral);
+}
+.signup-btn__primary {
+  background: var(--dark-red);
+  color: var(--white);
+  font-weight: 600;
+  transition: 0.3s;
+}
+.signup-btn__primary:hover {
+  background: var(--black);
+  color: var(--white);
+}
+/* End Sign Up Page */

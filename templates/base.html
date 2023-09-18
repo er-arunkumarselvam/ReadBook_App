@@ -29,13 +29,15 @@
   </head>
   <body>
     <!-- Navbar -->
-    {% include 'components/navbar.html' %}
+    <header>{% include 'components/navbar.html' %}</header>
+
     <!-- Content Block -->
-    {% block content %} {% endblock %}
+    <main>{% block content %} {% endblock %}</main>
+
     <!-- Script Block -->
     {% block scripts %} {% endblock %}
     <!-- Footer -->
-    {% include "components/footer.html" %}
+    <footer>{% include "components/footer.html" %}</footer>
 
     <!-- jQuery Js -->
     <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>

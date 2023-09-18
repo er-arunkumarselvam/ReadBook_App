@@ -5,7 +5,46 @@
 {%block content %} {% include "components/carousel.html" %}
 <div class="container my-5">
   <div class="row">
-    <div class="col-12"><h1>Welcome to ReadBook App</h1></div>
+    <div class="col-12">
+      <h4 class="fs-4 genre-content__heading">Best Seller Books</h4>
+      <hr />
+    </div>
+    {% for item in booksProduct %}
+    <div class="col-lg-3 col-md-4 justify-content-center card-section">
+      <a
+        href="{% url 'book-details' item.genre item.bookName %}"
+        class="card-section__link"
+      >
+        <div class="col">
+          <div class="card my-3 shadow book-card">
+            <img
+              src="{{item.bookImage.url}}"
+              class="card-img-top mx-auto my-4 book-card__img"
+              alt="{{item.bookName}} Image"
+            />
+            <div class="card-body border border-top book-card__body">
+              <span class="badge book-card__badge">{{item.genre}}</span>
+              <h5 class="card-title mt-2 book-card__title">
+                {{item.bookName}}
+              </h5>
+
+              <p class="card-text book-card__description">
+                {{item.bookDecription}}
+              </p>
+              <div class="d-flex align-items-baseline book-card__text">
+                <h5 class="fs-2 me-2 book-data__pricing--discount">
+                  &#8377; {{item.discountPrice | stringformat:'d'}}
+                </h5>
+                <h6 class="fs-5 book-data__pricing--original">
+                  &#8377; {{item.sellingPrice | stringformat:'d'}}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
   </div>
 </div>
 

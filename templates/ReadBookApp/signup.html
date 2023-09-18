@@ -1,0 +1,69 @@
+{% extends 'base.html' %}{% load static %}
+<!-- Title Content -->
+{% block title %} ReadBook App | Sign Up{% endblock %}
+<!-- Block Content -->
+{%block content %}
+<section class="py-4 my-5">
+  <div class="container-fluid signup-section">
+    <div class="row justify-content-end">
+      <!-- Sign Up Form-->
+      <div class="card col-4 shadow my-3 mx-2 p-3 signup-card">
+        <div class="col-10 mx-auto signup-form">
+          <h5 class="mt-5 mb-3 fs-3 text-center signup-card__heading">
+            Sign Up
+          </h5>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+              <label for="username" class="form-label">Username</label
+              >{{forms.username}}
+            </div>
+            <div class="mb-4">
+              <label for="Email" class="form-label">Email</label>{{forms.email}}
+            </div>
+            <div class="mb-4">
+              <label for="Password" class="form-label">Password</label
+              >{{forms.password1}}
+            </div>
+            <div class="mb-4">
+              <label for="Confirm Password" class="form-label"
+                >Confirm Password</label
+              >{{forms.password2}}
+            </div>
+            <div class="signup-btn">
+              <button type="submit" class="btn signup-btn__primary">
+                Sign Up
+              </button>
+            </div>
+            <p class="text-center text-muted my-4">
+              Have already an account?
+              <a href="{% url 'signin'%}" class="text-body"><u>Sign In</u></a>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="card col-4 border-0 my-12 p-3 signup-card-message">
+        {% if forms.errors.username %}
+        <div class="alert alert-danger col-12 signup-alert" role="alert">
+          {{forms.errors.username}}
+        </div>
+        {% endif %} {% if forms.errors.email %}
+        <div class="alert alert-danger col-12 signup-alert" role="alert">
+          {{forms.errors.email}}
+        </div>
+        {% endif %} {% if forms.errors.password1 %}
+        <div class="alert alert-danger col-12 signup-alert" role="alert">
+          {{forms.errors.password1}}
+        </div>
+        {% endif %} {% if forms.errors.password2 %}
+        <div class="alert alert-danger col-12 signup-alert" role="alert">
+          {{forms.errors.password2}}
+        </div>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

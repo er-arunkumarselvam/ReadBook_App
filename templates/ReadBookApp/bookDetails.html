@@ -65,27 +65,110 @@
         </div>
 
         <div class="my-3">
-          {% if books.quantity %}
-          <button type="button" class="btn btn-primary">Add Cart</button>
-          {% else %}
-          <button type="button" class="btn btn-secondary disbled">
-            Out of Stock
-          </button>
-          {% endif %} {% if books.quantity %}<button
-            type="button"
-            class="btn btn-success text-white"
-          >
-            Buy Now
-          </button>
-          {% else %}
-          <button type="button" class="btn btn-success text-white" disabled>
-            Buy Now
-          </button>
-          {% endif %}
+          {% if books.quantity > 0 %}
+          <input type="hidden" value="{{books.id}}" id="pid" />
+          <div class="input-group mb-4 product-qty__section--group">
+            <button
+              id="btnMinus"
+              class="input-group-text text-white product-qty__btn--primary px-1"
+            >
+              <i class="fas fa-minus fa-fw"></i>
+            </button>
+            <input
+              type="text"
+              id="txtQty"
+              value="1"
+              name="qty"
+              class="form-control text-center shadow-none"
+            />
+            <button
+              id="btnPlus"
+              class="input-group-text text-white product-qty__btn--primary px-1"
+            >
+              <i class="fas fa-plus fa-fw"></i>
+            </button>
+          </div>
         </div>
+        <button type="button" class="btn btn-primary" id="btnCart">
+          Add Cart
+        </button>
+        {% else %}
+        <button type="button" class="btn btn-secondary">Out of Stock</button>
+        {% endif %} {% if books.quantity %}<button
+          type="button"
+          class="btn btn-success text-white"
+        >
+          Buy Now
+        </button>
+        {% else %}
+        <button type="button" class="btn btn-success text-white" disabled>
+          Buy Now
+        </button>
+        {% endif %}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Quantity Increment and Decrement
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const decreaseBtn = document.getElementById("btnMinus");
+    const increaseBtn = document.getElementById("btnPlus");
+    const txtQty = document.getElementById("txtQty");
+    const pid = document.getElementById("pid");
+    const btnCart = document.getElementById("btnCart");
+
+    // Inccrement and Decrement buttons
+    increaseBtn.addEventListener("click", function () {
+      let count = parseInt(txtQty.value, 10);
+      count = isNaN(count) ? 0 : count;
+      if (count < 10) {
+        count++;
+        txtQty.value = count;
+      }
+    });
+
+    decreaseBtn.addEventListener("click", function () {
+      let count = parseInt(txtQty.value, 10);
+      count = isNaN(count) ? 0 : count;
+      if (count > 0) {
+        count--;
+        txtQty.value = count;
+      }
+    });
+
+    btnCart.addEventListener("click", function () {
+      let qty = parseInt(txtQty.value, 10);
+      qty = isNaN(qty) ? 0 : qty;
+
+      if (qty > 0) {
+        let postObj = {
+          product_qty: qty,
+          pid: pid.value,
+        };
+        //console.log(postObj);
+        fetch("/addtocart", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: {
+            Accept: "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": "{{ csrf_token }}",
+          },
+          body: JSON.stringify(postObj),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            alert(data["status"]);
+          });
+      } else {
+        alert("Please Enter The Quantity");
+      }
+    });
+  });
+</script>
 
 {% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static %}
+<!-- Title Content -->
+{% block title %} ReadBook App | Cart{% endblock %}
+<!-- Block Content -->
+{%block content %}
+<!-- Book Genre-->
+<section class="py-4 my-5 book-detail">
+  <div class="container mb-5">
+    <div
+      class="col-12 mx-auto mb-4 py-2 bg-light shadow-sm book-details__breadcrumb"
+    >
+      <nav class="mx-3" aria-label="breadcrumb">
+        <ol class="breadcrumb mx-3 my-3">
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Cart</li>
+        </ol>
+      </nav>
+    </div>
+    <h4 class="card-title mt-4 mx-3">Shopping Cart</h4>
+    <hr class="mx-3 my-1" />
+  </div>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-8 my-1">
+        <div class="card border-0">
+          {% for item in cart%}
+          <div class="card shadow m-2">
+            <div class="card-body d-flex">
+              <div class="col-1">
+                <img
+                  src="{{item.books.bookImage.url}}"
+                  class="card-image-top text-center mx-auto book-cart__img"
+                  alt="{{item..books.bookName}} image"
+                />
+              </div>
+
+              <div class="col-8 cart-details ps-3">
+                <h4 class="fw-bold">{{item.books.bookName}}</h4>
+                <p class="fs-5 mb-1">
+                  Price:&nbsp;<span class="fw-bold"
+                    >&#8377;&nbsp;{{item.books.discountPrice|stringformat:"d"}}</span
+                  >
+                </p>
+                <p class="fs-5 mb-1">
+                  Quantity:&nbsp;<span class="fw-bold"
+                    >{{item.books_qty }}</span
+                  >
+                </p>
+              </div>
+              <div class="col-3 d-flex flex-column align-items-start">
+                <h4 class="ms-auto cart-product-total">
+                  &#8377;&nbsp;{{item.total_price | stringformat:'d'}}
+                </h4>
+                <div class="call-to-action d-flex mt-auto ms-auto">
+                  <button
+                    class="btn btn-sm cart-delete__btn text-white fw-bold"
+                  >
+                    <i class="fas fa-trash fa-fw text-white me-1"></i>Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-4 my-2">
+        <div class="card">
+          <h3 class="fs-4 mt-3 mx-4">Summary</h3>
+          <hr class="mt-1 mb-3 mx-4" />
+          {% for item in cart %}
+          <div class="product-details mx-4">
+            <table class="table table-bordered">
+                <tbody><tr><td  class="text-wrap" style="width:212px;">{{item.books.bookName}}</td>
+            <td >{{item.books_qty}}</td>
+            <td >{{item.total_price | stringformat:'d'}}</td>
+            <td >
+              <button class="btn btn-sm cart-delete__btn "><i class="fas fa-trash fa-fw"></i>
+              </button>
+            </td></tr></tbody></table>
+            
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

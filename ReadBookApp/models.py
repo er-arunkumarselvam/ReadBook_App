@@ -54,3 +54,15 @@ class BookProduct(models.Model):
     # Overloading __str__ 
     def __str__(self): 
         return self.bookName
+    
+# Add to Cart
+class AddCart(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    books=models.ForeignKey(BookProduct, on_delete=models.CASCADE)
+    books_qty = models.IntegerField(null=False, blank=False)
+    createAt = models.DateTimeField(auto_now_add=True)
+    
+    @property # decorators
+    def total_price(self):
+        return self.books_qty*self.books.discountPrice
+    

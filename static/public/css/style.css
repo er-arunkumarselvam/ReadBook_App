@@ -79,11 +79,26 @@ body {
   height: 1.875rem;
 }
 .navbar-nav .nav-item .nav-link {
-  padding: 1.2rem;
+  padding: 1.35rem;
   color: var(--black);
   font-size: 1rem;
 }
-.navbar-nav .nav-item .nav-link:hover {
+.navbar-nav .nav-link {
+  padding: 1.2rem;
+  color: var(--dark-red);
+  font-size: 1.2rem;
+}
+.navbar-nav .nav-link .icon-logout {
+  color: var(--black);
+  font-size: 1.2rem;
+}
+.navbar-nav .nav-link a {
+  text-decoration: none;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link .icon-logout:hover {
   color: var(--dark-red);
 }
 .navbar-nav .nav-item .active {
@@ -248,6 +263,15 @@ body {
   color: var(--dark-red);
   text-decoration: line-through;
 }
+.product-qty__section--group {
+  width: 130px;
+}
+.product-qty__btn--primary {
+  background-color: var(--dark-red);
+}
+.product-qty__btn--primary:hover {
+  background-color: var(--red);
+}
 
 /* End Book Details */
 /* Index Page */
@@ -255,18 +279,40 @@ body {
   background-color: var(--dark-red);
 }
 /* End Index Page */
-/* Sign Up Page */
-.signup-card {
+/* Sign Up Page and Sign In Page */
+.signin-section {
+  min-height: 665px;
+}
+.signup-card,
+.signin-card {
   background: var(--neutral);
 }
-.signup-btn__primary {
+.signup-btn__primary,
+.signin-btn__primary {
   background: var(--dark-red);
   color: var(--white);
   font-weight: 600;
   transition: 0.3s;
 }
-.signup-btn__primary:hover {
+.signup-btn__primary:hover,
+.signin-btn__primary:hover {
   background: var(--black);
   color: var(--white);
 }
-/* End Sign Up Page */
+/* End Sign Up Page and Sign In Page */
+/* Cart Page */
+.book-cart__img{
+  object-fit: fill;
+  width: 60px;
+  height: 100px;
+}
+.cart-product-total{
+  font-weight: 900;
+}
+.call-to-action .cart-delete__btn{
+  background: var(--dark-red);
+}
+.call-to-action .cart-delete__btn:hover{
+background: var(--black);
+}
+/* End Cart Page */

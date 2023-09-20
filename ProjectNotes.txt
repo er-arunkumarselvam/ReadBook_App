@@ -175,7 +175,23 @@ ReadBook Web Application
         - import forms and add attribute in "models.py" file and bootstrap class handled
         - message passes to "message.html" 
         - create signin.html file and style the signin form
-    
+        - add the logout section and manage the session using logout module 
+
+    Quantity Increament and Decrement using JavaScript
+
+        - add element in bookDetail.html page and write js to access the button either increase or decrease function
+
+    Add to Cart page
+
+        - create a model in "AddCart" in "models.py"
+        - quantity value get into from user using AJAX Call
+        - create add to cart url in "urls.py"
+        - fetch the httprequest from "addcart"
+        - add cart page in url in "urls.py" and views in "views.py"
+        - display the add card product in "cart.html"
+        - add propety in "models.py" for using calculate amount and total amount
+
+
 
 
 

@@ -1,10 +1,10 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'auth_base.html' %}{% load static %}
 <!-- Title Content -->
 {% block title %} ReadBook App | Sign Up{% endblock %}
 <!-- Block Content -->
 {%block content %}
 <section class="py-4 my-5">
-  <div class="container-fluid signup-section">
+  <div class="container-fluid mt-3 signup-section">
     <div class="row justify-content-end">
       <!-- Sign Up Form-->
       <div class="card col-4 shadow my-3 mx-2 p-3 signup-card">
@@ -44,20 +44,57 @@
       </div>
       <div class="card col-4 border-0 my-12 p-3 signup-card-message">
         {% if forms.errors.username %}
-        <div class="alert alert-danger col-12 signup-alert" role="alert">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
           {{forms.errors.username}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
+
         {% endif %} {% if forms.errors.email %}
-        <div class="alert alert-danger col-12 signup-alert" role="alert">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
           {{forms.errors.email}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
         {% endif %} {% if forms.errors.password1 %}
-        <div class="alert alert-danger col-12 signup-alert" role="alert">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
           {{forms.errors.password1}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
         {% endif %} {% if forms.errors.password2 %}
-        <div class="alert alert-danger col-12 signup-alert" role="alert">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
           {{forms.errors.password2}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
 
         {% endif %}

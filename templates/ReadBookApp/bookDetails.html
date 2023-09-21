@@ -97,6 +97,8 @@
         {% endif %} {% if books.quantity %}<button
           type="button"
           class="btn btn-success text-white"
+          data-bs-toggle="modal"
+          data-bs-target="#showPayment"
         >
           Buy Now
         </button>
@@ -109,6 +111,36 @@
     </div>
   </div>
 </section>
+
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="showPayment"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Integration</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">I will update the payment gateway in future.</div>
+      <div class="modal-footer">
+        <button type="button" class="btn text-white  modelBtn" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   // Quantity Increment and Decrement

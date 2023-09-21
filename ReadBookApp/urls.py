@@ -17,4 +17,7 @@ urlpatterns=[
    path("signin",views.signinView,name="signin"),
    path("logout",views.logoutView,name="logout"),
    path('addtocart',views.add_to_cart,name="addtocart"),
+   path('cart-remove-book/<str:id>',views.remove_to_cart,name="cart-remove-book"),
+   path('article',views.articleView,name="article"),
+   
 ] 

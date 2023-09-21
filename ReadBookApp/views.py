@@ -62,7 +62,6 @@ def signinView(request):
             validate = authenticate(request, username=name, password=password)
             if validate is not None:
                 login(request,validate)
-                messages.success(request,"Successfully Signed In.")
                 return redirect('/') # Home Page
             else:
                 messages.error(request,"Invalid username or password")
@@ -74,7 +73,7 @@ def logoutView(request):
   if request.user.is_authenticated:
     logout(request)
     messages.success(request,"Logged out Successfully")
-  return redirect("/")
+  return redirect("/signin")
         
 # Add to Cart 
 def add_to_cart(request):
@@ -98,7 +97,7 @@ def add_to_cart(request):
    else:
     return JsonResponse({'status':'Invalid Access'}, status=200)
 
-
+#  Cart View Accessing
 def cartView(request):
     if request.user.is_authenticated:
         cart = AddCart.objects.filter(user=request.user)
@@ -106,3 +105,14 @@ def cartView(request):
     else:
         messages.error(request,"Login user only allowed")
         return redirect('/')
+    
+# Delete Product From Cart
+def remove_to_cart(request, id):
+    cartitem = AddCart.objects.get(id=id)
+    cartitem.delete()
+    messages.success(request,"Book has been removed from your cart successfully.")
+    return redirect('/cart')
+
+# Article Page
+def articleView(request):
+        return render(request,"ReadBookApp/articlePage.html") 

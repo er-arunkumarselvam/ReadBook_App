@@ -2,7 +2,7 @@
 <!-- Title Content -->
 {% block title %} ReadBook App | Cart{% endblock %}
 <!-- Block Content -->
-{%block content %}
+{%block content %} {% include "components/message.html" %}
 <!-- Book Genre-->
 <section class="py-4 my-5 book-detail">
   <div class="container mb-5">
@@ -24,7 +24,7 @@
 
   <div class="container mt-4">
     <div class="row">
-      <div class="col-8 my-1">
+      <div class="col-7 my-1">
         <div class="card border-0">
           {% for item in cart%}
           <div class="card shadow m-2">
@@ -38,7 +38,7 @@
               </div>
 
               <div class="col-8 cart-details ps-3">
-                <h4 class="fw-bold">{{item.books.bookName}}</h4>
+                <h4 class="fw-bold cart-book__name">{{item.books.bookName}}</h4>
                 <p class="fs-5 mb-1">
                   Price:&nbsp;<span class="fw-bold"
                     >&#8377;&nbsp;{{item.books.discountPrice|stringformat:"d"}}</span
@@ -55,11 +55,13 @@
                   &#8377;&nbsp;{{item.total_price | stringformat:'d'}}
                 </h4>
                 <div class="call-to-action d-flex mt-auto ms-auto">
-                  <button
+                  <a
+                    href="{% url 'cart-remove-book' item.id %}"
+                    onclick="return confirm('Are you certain you want to delete this book?')"
                     class="btn btn-sm cart-delete__btn text-white fw-bold"
                   >
                     <i class="fas fa-trash fa-fw text-white me-1"></i>Remove
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -68,27 +70,56 @@
         </div>
       </div>
 
-      <div class="col-4 my-2">
+      <div class="col-5 my-2">
         <div class="card">
-          <h3 class="fs-4 mt-3 mx-4">Summary</h3>
+          <div class="d-flex justify-content-between">
+            <h3 class="fs-4 mt-3 mx-4">Summary</h3>
+          </div>
+
           <hr class="mt-1 mb-3 mx-4" />
           {% for item in cart %}
-          <div class="product-details mx-4">
-            <table class="table table-bordered">
-                <tbody><tr><td  class="text-wrap" style="width:212px;">{{item.books.bookName}}</td>
-            <td >{{item.books_qty}}</td>
-            <td >{{item.total_price | stringformat:'d'}}</td>
-            <td >
-              <button class="btn btn-sm cart-delete__btn "><i class="fas fa-trash fa-fw"></i>
-              </button>
-            </td></tr></tbody></table>
-            
+          <div class="table-responsive mx-4">
+            <table class="table table-fixed text-wrap">
+              <tbody>
+                <tr>
+                  <td style="width: 200px">{{item.books.bookName}}</td>
+                  <td style="width: 45px" class="text-center">
+                    {{item.books_qty}}
+                  </td>
+                  <td style="width: 75px" class="text-end amt">
+                    {{item.total_price | stringformat:'d'}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           {% endfor %}
+          <div class="d-flex justify-content-end bg-light fw-bold mx-4 mb-4">
+            <h3 class="fs-4 my-3 mx-4 fw-bold">Total</h3>
+            <h3 class="fs-4 my-3 mx-2 fw-bold" id="total">Total</h3>
+          </div>
+          <div class="pay-button ms-auto">
+            <button class="btn btn-outline-dark mx-1 mb-4 fw-bold">
+              Cancel
+            </button>
+            <button class="btn btn-success ms-1 me-4 mb-4 fw-bold">
+              Pay Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  // Total Function
+  const amount = document.querySelectorAll(".amt");
+  const arr = Array.from(amount);
+  const fullAmount = arr.reduce((acc, curr) => {
+    return (acc += Number(curr.textContent));
+  }, 0);
+  let total = (document.getElementById("total").innerHTML =
+    "&#8377;&nbsp;" + fullAmount);
+</script>
 {% endblock %}

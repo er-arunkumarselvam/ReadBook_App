@@ -101,10 +101,6 @@ body {
 .navbar-nav .nav-link .icon-logout:hover {
   color: var(--dark-red);
 }
-.navbar-nav .nav-item .active {
-  color: var(--dark-red);
-  border-bottom: 4px solid var(--dark-red);
-}
 .navbar-nav .btn-signin {
   border: 1px solid var(--black);
   color: var(--black);
@@ -125,6 +121,7 @@ body {
 .navbar-nav .btn-signup:hover {
   background: var(--black);
 }
+
 @media (max-width: 991.98px) {
   .navbar {
     padding: 1.5rem;
@@ -272,7 +269,12 @@ body {
 .product-qty__btn--primary:hover {
   background-color: var(--red);
 }
-
+.modelBtn {
+  background-color: var(--dark-red);
+}
+.modelBtn:hover {
+  background-color: var(--black);
+}
 /* End Book Details */
 /* Index Page */
 .book-card__badge {
@@ -301,18 +303,32 @@ body {
 }
 /* End Sign Up Page and Sign In Page */
 /* Cart Page */
-.book-cart__img{
+.book-cart__img {
   object-fit: fill;
   width: 60px;
   height: 100px;
 }
-.cart-product-total{
+.cart-product-total {
   font-weight: 900;
 }
-.call-to-action .cart-delete__btn{
+.summary-delete__btn {
+  margin: 15px 30px;
+  height: 32px !important;
+}
+.call-to-action .cart-delete__btn,
+.summary-delete__btn {
   background: var(--dark-red);
 }
-.call-to-action .cart-delete__btn:hover{
-background: var(--black);
+.call-to-action .cart-delete__btn:hover,
+.summary-delete__btn:hover {
+  background: var(--black);
 }
+.cart-book__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* End Cart Page */

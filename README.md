@@ -10,6 +10,9 @@ The ReadBook App is a user-friendly online store for book lovers. It has many ty
 
 To make shopping easy, the app has simple sign-up and log-in pages. Shoppers can put books they like into their carts and buy them. The app also makes it easy to manage the cart, so you can add or remove items easily.
 
+![ReadBook Image](image.png)
 
-__Blog Link__ : 
+__Blog Link__ : https://arunkumarselvamblog.wordpress.com/2023/09/22/readbook-web-app/
+
+__Projects__: https://arunkumarselvamblog.wordpress.com/projects/
 

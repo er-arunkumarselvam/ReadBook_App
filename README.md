@@ -1,5 +1,4 @@
-
-<span style="display:block;text-align:center;">![readbooklogo.svg](static%2Fpublic%2Fimages%2Freadbooklogo.svg)</span>
+# ReadBook App 
 
 <span style="display:block;text-align:center;">![Static Badge](https://img.shields.io/badge/Python-3.10.12-ffdc53)
 ![Static Badge](https://img.shields.io/badge/Django-4.2.5-darkgreen)
@@ -10,7 +9,9 @@ The ReadBook App is a user-friendly online store for book lovers. It has many ty
 
 To make shopping easy, the app has simple sign-up and log-in pages. Shoppers can put books they like into their carts and buy them. The app also makes it easy to manage the cart, so you can add or remove items easily.
 
-![ReadBook Image](image.png)
+__Demo Link__
+
+[![Watch the video](https://img.youtube.com/vi/jlnGk2eV09s/sddefault.jpg)](https://youtu.be/jlnGk2eV09s)
 
 __Blog Link__ : https://arunkumarselvamblog.wordpress.com/2023/09/22/readbook-web-app/
 
